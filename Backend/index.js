@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var cors = require('cors');
 
 //use cors to allow cross origin resource sharing
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors());
 
 //use express session to maintain session data
 app.use(session({
