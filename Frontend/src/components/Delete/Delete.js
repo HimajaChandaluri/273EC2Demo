@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import cookie from 'react-cookies';
 import {Redirect} from 'react-router';
+import {backendURL} from "../../config.json"
 
 class Delete extends Component{
     constructor(props){
@@ -24,7 +25,7 @@ class Delete extends Component{
     onSubmit = e => {
         e.preventDefault();
 
-        axios.post("http://127.0.0.1:3001/delete",{BookID: this.state.BookID})
+        axios.post(backendURL+"/delete",{BookID: this.state.BookID})
         .then(response => {
             this.setState({
                 success: true

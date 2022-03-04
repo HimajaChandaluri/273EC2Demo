@@ -3,6 +3,7 @@ import '../../App.css';
 import axios from 'axios';
 import cookie from 'react-cookies';
 import { Redirect } from 'react-router';
+import {backendURL} from "../../config.json"
 
 //Define a Login Component
 class Login extends Component {
@@ -51,7 +52,8 @@ class Login extends Component {
         //set the with credentials to true
         axios.defaults.withCredentials = true;
         //make a post request with the user data
-        axios.post('http://localhost:3001/login', data)
+        console.log("backendURL: ", backendURL)
+        axios.post(backendURL+'/login', data)
             .then(response => {
                 this.setState({
                     authFlag: true

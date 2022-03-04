@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import cookie from 'react-cookies';
 import {Redirect} from 'react-router';
+import {backendURL} from "../../config.json"
 
 class Home extends Component {
     constructor(props){
@@ -12,7 +13,7 @@ class Home extends Component {
     }  
     //get the books data from backend  
     componentDidMount(){
-        axios.get('http://localhost:3001/home')
+        axios.get(backendURL+'/home')
                 .then((response) => {
                 //update the state with the response data
                 this.setState({

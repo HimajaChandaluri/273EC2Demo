@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import cookie from 'react-cookies';
 import {Redirect} from 'react-router';
 import axios from 'axios';
+import {backendURL} from "../../config.json"
 
 class Create extends Component{
     constructor(props){
@@ -26,7 +27,7 @@ class Create extends Component{
     onSubmit(e) {
         e.preventDefault();
         let data = {BookID: this.state.BookID, Title: this.state.Title, Author:this.state.Author};
-        axios.post("http://127.0.0.1:3001/create", data)
+        axios.post(backendURL+ "/create", data)
         .then(response => {
                 this.setState({
                     success: true
